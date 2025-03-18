@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        select, button {
+            font-size: 16px;
+            padding: 8px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Select Player for Analysis</h2>
+    <form action="/batsman-analysis" method="get">
+        <label for="player">Player :</label>
+        <select name="player">
+            {% for i in players %}
+                    <option>{{i}}</option>
+            {% endfor %}
+
+        </select>
+
+        <br>
+        <button>Analyze</button>
+
+    </form>
+
+<!--    <p>-->
+<!--        {% if result %}-->
+<!--            <p>{{ result }}</p>-->
+<!--        {% endif %}-->
+
+<!--    </p>-->
+
+
+    <script>
+        function analyzeTeams() {
+            let team1 = document.getElementById("team1").value;
+            let team2 = document.getElementById("team2").value;
+            if (team1 === team2) {
+                alert("Please select different teams for analysis.");
+            } else {
+                alert("Analyzing " + team1 + " vs " + team2);
+            }
+        }
+    </script>
+
+</body>
+</html>
